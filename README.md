@@ -1,6 +1,15 @@
 # Prometheus Exporter for Datakom D500
 
+![Build Status](https://github.com/qveensi/datakom_exporter/actions/workflows/docker-publish.yml/badge.svg)
+![License](https://img.shields.io/github/license/qveensi/datakom_exporter)
+![Docker Image Size](https://img.shields.io/docker/image-size/qveensi/datakom_exporter)
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
+
 A Go-based exporter for monitoring **Datakom D-500** and **D-500LITE MK2** genset control units. The program reads data via the **Modbus TCP** protocol directly from the controller's register map.
+
+#### Ukraine is still suffering from Russian aggression, [please consider supporting Red Cross Ukraine with a donation](https://redcross.org.ua/en/).
+
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
 
 ## 📊 Key Metrics
 
