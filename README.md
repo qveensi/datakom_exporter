@@ -29,7 +29,7 @@ The exporter collects a full set of data regarding the state of the mains, gener
 For deployment flexibility and support for multiple networks/sites, configuration is handled via environment variables:
 
 | Variable | Description | Default Value |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `DATAKOM_HOST` | IP address or hostname of the controller | `192.168.100.100` |
 | `DATAKOM_PORT` | Modbus TCP port (configured in Rainbow Plus) | `502` |
 | `EXPORTER_PORT` | The port on which the exporter serves metrics | `8000` |
@@ -86,34 +86,25 @@ If you have three independent networks/generators, you can run three separate pr
 
 The exporter uses the standard Datakom address map (32-bit values occupy two 16-bit registers, high byte first):
 
-| Parameter | Address (Dec) | Data Size | Coefficient | Description (per Manual) |
-| --- | --- | --- | --- | --- |
-| **Mains Voltage L1-L2-L3** | 10240, 10242, 10244 | 32-bit | `/ 10` | Mains phase voltage (V) 
-|
-| **Mains Current I1-I2-I3** | 10264, 10266, 10268 | 32-bit | `/ 10` | Mains phase current (A) 
-|
-| **Genset Power Total** | 10294 | 32-bit | `/ 10` | Total active power (kW) 
-|
-| **Mains Frequency** | 10338 | 16-bit | `/ 100` | Mains frequency (Hz) 
-|
-| **Genset Frequency** | 10339 | 16-bit | `/ 100` | Genset frequency (Hz) 
-|
-| **Battery Voltage** | 10341 | 16-bit | `/ 100` | Battery voltage (Vdc) 
-|
-| **Coolant Temp** | 10362 | 16-bit | `/ 10` | Engine temperature (°C) 
-|
-| **Fuel Level** | 10363 | 16-bit | `/ 10` | Fuel level (%) 
-|
-| **Operation Status** | 10604 | 16-bit | `x 1` | Current status (0-25) 
-|
-| **Engine Run Hours** | 10622 | 32-bit | `/ 100` | Total engine hours (h) 
-|
-| **Total Genset Energy** | 10628 | 32-bit | `/ 10` | Total active energy (kWh) 
-|
-| **Service-1 Hours** | 10634 | 32-bit | `/ 100` | Hours remaining to Service-1 
-|
-| **Service-1 Days** | 10636 | 32-bit | `/ 100` | Days remaining to Service-1 
-|
+| Parameter | Address (Dec) | Data Size | Coefficient | Description |
+| :-- | :-- | :-- | :-- | :-- |
+| Mains Voltage L1 | 10240 | 32-bit | / 10 | Mains phase voltage L1 (V) |
+| Mains Voltage L2 | 10242 | 32-bit | / 10 | Mains phase voltage L2 (V) |
+| Mains Voltage L3 | 10244 | 32-bit | / 10 | Mains phase voltage L3 (V) |
+| Mains Current I1 | 10264 | 32-bit | / 10 | Mains phase current I1 (A) |
+| Mains Current I2 | 10266 | 32-bit | / 10 | Mains phase current I2 (A) |
+| Mains Current I3 | 10268 | 32-bit | / 10 | Mains phase current I3 (A) |
+| Genset Power Total | 10294 | 32-bit | / 10 | Total active power (kW) |
+| Mains Frequency | 10338 | 16-bit | / 100 | Mains frequency (Hz) |
+| Genset Frequency | 10339 | 16-bit | / 100 | Genset frequency (Hz) |
+| Battery Voltage | 10341 | 16-bit | / 100 | Battery voltage (Vdc) |
+| Coolant Temp | 10362 | 16-bit | / 10 | Engine temperature (°C) |
+| Fuel Level | 10363 | 16-bit | / 10 | Fuel level (%) |
+| Operation Status | 10604 | 16-bit | x 1 | Current status (0-25) |
+| Engine Run Hours | 10622 | 32-bit | / 100 | Total engine hours (h) |
+| Total Genset Energy | 10628 | 32-bit | / 10 | Total active energy (kWh) |
+| Service-1 Hours | 10634 | 32-bit | / 100 | Hours remaining to Service-1 |
+| Service-1 Days | 10636 | 32-bit | / 100 | Days remaining to Service-1 |
 
 
 ### 🧩 Operation Status Decoding (ID 10604)
